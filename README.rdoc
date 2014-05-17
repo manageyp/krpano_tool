@@ -3,6 +3,8 @@
 == Description
 Module for Python to call Krpano kmaketiles tools to tile, resize and convert images.
 
+The {Krpano}[http://krpano.com/] Viewer is a small and very flexible high-performance viewer for all kind of panoramic images and interactive virtual tours.
+
 Currently, there are only one way to use this module.
 
     . tile_full()   can tile spherical images to cubical images, resize sphere images.
@@ -22,6 +24,22 @@ How to use:
 
     pano_path = "http : //host/pano-path"
     source.sources(pano_path)
+
+
+= Notices
+
+=== Krpano license
+
+You need to over write file "krpanotools.license" with your license, or
+krpano tools will have each image covered with full watermark.
+
+
+=== Path
+
+When I used this krpano tool within a Django project, I changed the variable "KRPANO_BASE_DIR" to the following:
+
+    from django.conf import settings
+    KRPANO_BASE_DIR = settings.BASE_DIR
 
 
 = Run Tests
