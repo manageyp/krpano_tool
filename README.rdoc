@@ -4,28 +4,73 @@
 Module for Python to call Krpano kmaketiles tools to tile, resize and convert images.
 
 Currently, there are only one way to use this module.
-. tile_full()   can tile spherical images to cubical images, resize sphere images.
+
+    . tile_full()   can tile spherical images to cubical images, resize sphere images.
 
 How to use:
 
-from krpano_tool.krpano import krpano
+=== Title origin image to cube and sphere images
 
-image_path = "path_to_your_image/test.jpg"
-krpano.tile_full(image_path)
+    from krpano_tool.krpano import krpano
+
+    image_path = "path_to_your_image/test.jpg"
+    krpano.tile_full(image_path)
+
+=== Get pano sources structure
+
+    from krpano_tool.source import source
+
+    pano_path = "http : //host/pano-path"
+    source.sources(pano_path)
 
 
-from krpano_tool.source import source
+= Run Tests
 
-pano_path = "http://host/pano-path"
-source.sources(pano_path)
-
-
-= Tests
-cd tests
+=== Test krpano tile function
 $ python test_krpano.py
 
-20140517143710900926_xrkjkkit.zip
+    20140517143710900926_xrkjkkit.zip
 
-
+=== Test krpano sources function
 $ python test_source.py
-{'origin': 'http://host/pano-path/origin.jpg', 'sphere': {'1024': {'high': 'http://host/pano-path/sphere/1024h.jpg', 'medium': 'http://host/pano-path/sphere/1024m.jpg', 'low': 'http://host/pano-path/sphere/1024l.jpg'}, 'preview': 'http://host/pano-path/sphere/preview.jpg', '2048': {'high': 'http://host/pano-path/sphere/2048h.jpg', 'medium': 'http://host/pano-path/sphere/2048m.jpg', 'low': 'http://host/pano-path/sphere/2048l.jpg'}, '512': {'high': 'http://host/pano-path/sphere/512h.jpg', 'medium': 'http://host/pano-path/sphere/512m.jpg', 'low': 'http://host/pano-path/sphere/512l.jpg'}}, 'cube': {'1024': {'high': 'http://host/pano-path/cube/1024h_%s.jpg', 'medium': 'http://host/pano-path/cube/1024m_%s.jpg', 'low': 'http://host/pano-path/cube/1024l_%s.jpg'}, 'tiles': {'1024': 'http://host/pano-path/cube/tiles/1024/%s/%v_%h.jpg', '512': 'http://host/pano-path/cube/tiles/512/%s/%v_%h.jpg', '2048': 'http://host/pano-path/cube/tiles/2048/%s/%v_%h.jpg'}, 'preview': 'http://host/pano-path/cube/preview.jpg', '2048': {'high': 'http://host/pano-path/cube/2048h_%s.jpg', 'medium': 'http://host/pano-path/cube/2048m_%s.jpg', 'low': 'http://host/pano-path/cube/2048l_%s.jpg'}, '512': {'high': 'http://host/pano-path/cube/512h_%s.jpg', 'medium': 'http://host/pano-path/cube/512m_%s.jpg', 'low': 'http://host/pano-path/cube/512l_%s.jpg'}}, 'thumb': 'http://host/pano-path/thumb.jpg'}
+    {
+        "origin": "http : //host/path/origin.jpg",
+        "thumb": "http : //host/path/thumb.jpg",
+        "sphere": {
+            "preview": "http : //host/path/sphere/preview.jpg",
+            "2048": [
+                "high": "http : //host/path/sphere/2048h.jpg",
+                "medium": "http : //host/path/sphere/2048m.jpg",
+                "low": "http : //host/path/sphere/2048l.jpg"
+            ],
+            "1024": [
+                "high": "http : //host/path/sphere/1024h.jpg",
+                ...
+            ],
+            "512": [
+                "high": "http : //host/path/sphere/512h.jpg",
+                ...
+            ]
+        },
+        "cube": {
+            "preview": "http : //host/path/cube/preview.jpg",
+            "2048": {
+                "high": "http : //host/path/cube/2048h_%s",
+                "medium": "http : //host/path/cube/2048m_%s",
+                "low": "http : //host/path/cube/2048l_%s"
+            },
+            "1024": [
+                "high": "http : //host/path/cube/1024h_%s",
+                ...
+            ],
+            "512": [
+                "high": "http : //host/path/cube/512h_%s",
+                ...
+            ],
+            "tiles": {
+                "2048": "http : //host/path/cube/tiles/2048/%s/%v_%h.jpg",
+                "1024": "http : //host/path/cube/tiles/1024/%s/%v_%h.jpg",
+                "512": "http : //host/path/cube/tiles/512/%s/%v_%h.jpg"
+            }
+        }
+    }
