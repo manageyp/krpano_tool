@@ -5,9 +5,10 @@ Module for Python to call Krpano kmaketiles tools to tile, resize and convert im
 
 The {Krpano}[http://krpano.com/] Viewer is a small and very flexible high-performance viewer for all kind of panoramic images and interactive virtual tours.
 
-Currently, there are only one way to use this module.
+Currently, there are only two ways to use this module.
 
     . tile_full()   can tile spherical images to cubical images, resize sphere images.
+    . sources(pano_path)   get full image sources, return absolute image path.
 
 How to use:
 
