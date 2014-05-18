@@ -29,6 +29,14 @@ How to use:
 
 = Notices
 
+=== Krpano tools version
+
+Linux: krpanotools-1.16.9-linux64.tar.gz
+Mac: krpanotools-1.16.9-mac64.zip
+
+Krpano {download}[http://krpano.com/download/]
+
+
 === Krpano license
 
 You need to over write file "krpanotools.license" with your license, or
