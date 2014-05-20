@@ -32,6 +32,7 @@ How to use:
 === Krpano tools version
 
 Linux: krpanotools-1.16.9-linux64.tar.gz
+
 Mac: krpanotools-1.16.9-mac64.zip
 
 Krpano {download}[http://krpano.com/download/]
@@ -39,7 +40,7 @@ Krpano {download}[http://krpano.com/download/]
 
 === Krpano license
 
-You need to over write file "krpanotools.license" with your license, or
+You need to overwrite "krpanotools.license" file with your license, or
 krpano tools will have each image covered with full watermark.
 
 
